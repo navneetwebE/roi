@@ -188,9 +188,9 @@ export function RoiCalculator() {
   const marketingBudget10 = Math.round(baseRevenue * 0.10 / 1000) * 1000
 
   const priorityDescriptions = {
-    SupportiveRole: "The website contributes minimally to revenue generation and serves a supportive role.",
-    SignificantInfluence: "The website significantly influences revenue generation but is not the primary source.",
-    KeyDriver: "The website is a key driver of revenue and essential for business profitability."
+    "Supportive Role": "The website contributes minimally to revenue generation and serves a supportive role.",
+    "Significant Influence": "The website significantly influences revenue generation but is not the primary source.",
+    "Key Driver": "The website is a key driver of revenue and essential for business profitability."
   }
 
   const complexityDescriptions = {
@@ -326,6 +326,7 @@ export function RoiCalculator() {
         <CardHeader>
           <CardTitle className="text-base sm:text-lg md:text-xl font-normal">Website Budget Ranges</CardTitle>
           <p className="text-xs sm:text-sm text-gray-500 mt-1">Business Priority vs. Website Complexity</p>
+        
         </CardHeader>
         <CardContent className="overflow-x-auto">
           <Table>
@@ -345,7 +346,7 @@ export function RoiCalculator() {
               {budgetMatrix.map((row, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">
-                    <InfoModal title={`${row.priority}`} description={priorityDescriptions[row.priority as keyof typeof priorityDescriptions]}>{row.priority}</InfoModal>
+                    <InfoModal title={row.priority} description={priorityDescriptions[row.priority as keyof typeof priorityDescriptions]}>{row.priority}</InfoModal>
                   </TableCell>
                   <TableCell className="text-sm sm:text-base">
                     <AnimatedValue value={row.simple.min} /> - <AnimatedValue value={row.simple.max} />
